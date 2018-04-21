@@ -79,9 +79,9 @@ class App extends Component {
             }
         })
             .then(response => {
+                this.setState({loading: false});
                 parseString(response.data, (err, result) => {
                     this.setState({
-                        loading: false,
                         articles: result['feed']['entry'].map(v => {
                             return {
                                 title: v.title,
